@@ -14,11 +14,6 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 # aliases
-alias ls "ls -p -G"
-alias la "ls -A"
-alias ll "ls -l"
-alias lla "ll -A"
-alias g git
 command -qv nvim && alias vim nvim
 
 set -gx EDITOR nvim
@@ -33,6 +28,13 @@ set -gx PATH node_modules/.bin $PATH
 # Go
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
+
+if status is-interactive
+  export PATH="$HOME/bin:$PATH";
+  for file in ~/.{path,exports,aliases,functions,extra}
+      [ -r "$file" ] && [ -f "$file" ] && bass source $file
+  end
+end
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
