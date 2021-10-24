@@ -44,9 +44,9 @@ end
 function _tide_right_prompt
     set -g _tide_last_item_was_newline
 
-    _tide_which_side_working_on=right for item in $tide_right_prompt_items
-        _tide_item_$item
-    end
+    #_tide_which_side_working_on=right for item in $tide_right_prompt_items
+    #    _tide_item_$item
+    #end
 
     if not set -e _tide_last_item_was_newline
         set_color $_tide_previous_bg_color -b normal
