@@ -30,10 +30,7 @@ set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
 
 if status is-interactive
-  export PATH="$HOME/bin:$PATH";
-  for file in ~/.{path,exports,aliases,functions,extra}
-      [ -r "$file" ] && [ -f "$file" ] && bass source $file
-  end
+  bass source ~/.config/bash/profile
 end
 
 # NVM
