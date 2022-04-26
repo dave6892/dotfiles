@@ -1,6 +1,9 @@
 dotfiles
 ============
 
+These are the dotfiles I used for my own personal development environment.
+
+:warning: **These dot files are intended for my own environment. Use at your own risk.**
 
 ## Contents
 
