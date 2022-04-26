@@ -1,7 +1,7 @@
 dotfiles
 ============
 
-These are the dotfiles I used for my own personal development environment. These dotfiles are modified from [craftzdog](https://github.com/craftzdog/dotfiles-public).
+These are the dotfiles I used for my own terminal-level development environment. These dotfiles are modified from [craftzdog](https://github.com/craftzdog/dotfiles-public).
 
 :warning: **These dot files are intended for my own environment. Use at your own risk.**
 
@@ -36,3 +36,9 @@ Run the `bootstrap.sh` script
 ```sh
 ./bootstrap.sh
 ```
+
+## Resources
+
+* [craftzdog](https://github.com/craftzdog/) or [devaslife](https://www.youtube.com/c/devaslife) on YouTube: inspired this environment setup.
+* [dev-setup](https://github.com/dave6892/dev-setup/tree/develop): Checkout my software setup suite. (Private for now).
+* `dev-setup` is inspired by [donnemartin](https://github.com/donnemartin/dev-setup)'s repo.
