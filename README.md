@@ -31,7 +31,7 @@ Requires Neovim (>= 0.5)
 
 ## Installation
 
-Run the `bootstrap.sh` script to move the dotfiles into the home directory.
+Run the `bootstrap.sh` script
 
 ```sh
 ./bootstrap.sh
