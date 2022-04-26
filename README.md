@@ -1,7 +1,7 @@
 dotfiles
 ============
 
-These are the dotfiles I used for my own personal development environment.
+These are the dotfiles I used for my own personal development environment. These dotfiles are modified from [craftzdog](https://github.com/craftzdog/dotfiles-public).
 
 :warning: **These dot files are intended for my own environment. Use at your own risk.**
 
