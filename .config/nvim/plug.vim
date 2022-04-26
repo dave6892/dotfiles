@@ -22,10 +22,11 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'windwp/nvim-autopairs'
+  Plug 'arcticicestudio/nord-vim'
+  Plug 'rakr/vim-one'
 endif
 
 Plug 'groenewege/vim-less', { 'for': 'less' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
 call plug#end()
-

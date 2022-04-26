@@ -131,11 +131,19 @@ if exists("&termguicolors") && exists("&winblend")
   set winblend=0
   set wildoptions=pum
   set pumblend=5
-  set background=dark
   " Use NeoSolarized
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
+  "let g:neosolarized_termtrans=1
+  "runtime ./colors/NeoSolarized.vim
+  "colorscheme NeoSolarized
+  "set background=dark
+  
+  " Use nord
+  "colorscheme nord
+  
+  " Use vim-one
+  let g:airline_theme='one'
+  colorscheme one
+  set background=dark
 endif
 
 "}}}
