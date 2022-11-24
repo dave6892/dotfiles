@@ -16,6 +16,7 @@ set -g theme_hostname always
 
 
 # aliases
+command -qv python3 && alias python python3
 command -qv nvim && alias vim nvim
 set -gx EDITOR nvim
 
