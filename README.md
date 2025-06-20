@@ -52,24 +52,174 @@ This approach means you can switch between shells without losing your customizat
 
 ## Installation
 
-Run the `bootstrap.sh` script to install the dotfiles:
+### Quick Start
 
-```sh
-./bootstrap.sh
-```
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/dave6892/dotfiles.git
+   cd dotfiles
+   ```
 
-Or use the `--force` option to skip the confirmation prompt:
+2. **Run the installation script:**
+   ```sh
+   ./bootstrap.sh
+   ```
 
-```sh
-./bootstrap.sh --force
-```
+   Or use the `--force` option to skip the confirmation prompt:
+   ```sh
+   ./bootstrap.sh --force
+   ```
 
-The script will:
-1. Create necessary directories
-2. Copy all files to your home directory
+3. **Apply the changes:**
+   - **Restart your terminal**, or
+   - **Source the configuration manually:**
+     ```sh
+     # For bash
+     source ~/.bashrc
+     
+     # For zsh
+     source ~/.zshrc
+     
+     # For fish
+     source ~/.config/fish/config.fish
+     ```
+
+### What the Installation Does
+
+The `bootstrap.sh` script will:
+1. Create necessary directories (`~/.shell`, `~/.config/fish/functions`)
+2. Copy all configuration files to your home directory
 3. Set correct permissions for executable files
+4. Preserve your existing files (creates backups when needed)
 
-After installation, you can immediately start using any of the supported shells with your new configuration.
+### Requirements
+
+- **Supported shells**: Bash, Zsh, Fish
+- **Supported platforms**: macOS, Linux
+- **Dependencies**: `rsync` (usually pre-installed)
+
+## Usage
+
+### Available Aliases
+
+Once installed, you'll have access to these aliases across all shells:
+
+#### Navigation
+```sh
+..          # cd ..
+...         # cd ../..
+....        # cd ../../..
+.....       # cd ../../../..
+
+d           # cd ~/Documents
+dl          # cd ~/Downloads
+dt          # cd ~/Desktop
+dev         # cd ~/Developer
+```
+
+#### Git Shortcuts
+```sh
+g           # git
+gst         # git status
+ga          # git add
+grm         # git rm
+gc          # git commit
+gp          # git push
+gl          # git pull
+gd          # git diff
+gb          # git branch
+gco         # git checkout
+```
+
+#### System Utilities
+```sh
+h           # history
+j           # jobs
+week        # show current week number
+timer       # simple timer utility
+
+# Network
+ip          # get external IP address
+localip     # get local IP address
+flush       # flush DNS cache
+
+# File operations
+c           # trim newlines and copy to clipboard
+cleanup     # remove .DS_Store files recursively
+```
+
+#### macOS-Specific
+```sh
+show        # show hidden files in Finder
+hide        # hide hidden files in Finder
+showdesktop # show desktop icons
+hidedesktop # hide desktop icons
+spotoff     # disable Spotlight indexing
+spoton      # enable Spotlight indexing
+```
+
+### Available Functions
+
+These functions work across all supported shells:
+
+#### File Management
+```sh
+# Create directory and cd into it
+mkd project-name
+
+# Change to top-most Finder window location (macOS)
+cdf
+
+# Create compressed tar.gz archive
+targz folder-name
+
+# Extract various archive formats
+extract archive.zip
+extract archive.tar.gz
+extract archive.rar
+# ... supports many formats
+```
+
+### Shell-Specific Features
+
+#### Fish Shell
+- **Auto-completion**: Enhanced tab completion for git, npm, and more
+- **Syntax highlighting**: Real-time command syntax highlighting
+- **History**: Intelligent command history with substring matching
+- **Functions**: All shared functions are automatically converted to Fish syntax
+
+#### Bash/Zsh
+- **History**: Shared history configuration with sensible defaults
+- **Completion**: Enhanced tab completion where available
+- **Prompt**: Clean, informative prompt with git status
+
+### Environment Variables
+
+The configuration sets up several useful environment variables:
+
+- **PATH**: Optimized with common development tool paths
+- **EDITOR**: Set to your preferred editor (neovim if available, vim otherwise)
+- **Development tools**: Configured for various programming languages and tools
+
+### Using Different Shells
+
+You can switch between shells at any time:
+
+```sh
+# Switch to bash
+bash
+
+# Switch to zsh
+zsh
+
+# Switch to fish
+fish
+
+# Change default shell (permanent)
+chsh -s $(which fish)  # or bash, zsh
+```
+
+All your aliases and functions will work identically across shells.
 
 ## Customization
 
