@@ -1,3 +1,17 @@
+#!/bin/bash
+# Profile for bash/zsh compatibility with fish config
+
+# Source common dotfiles
+if [ -f ~/.exports ]; then
+    source ~/.exports
+fi
+
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+# Add any bash/zsh specific configurations below
+
 for file in ~/.{path,exports,aliases,functions,extra}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
