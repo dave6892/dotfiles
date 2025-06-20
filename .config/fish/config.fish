@@ -1,39 +1,24 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    bass source ~/.config/bash/profile
+    # Load common shell configuration
+    source ~/.config/fish/functions/source_shell_config.fish
+    source ~/.config/fish/functions/load_aliases.fish
+    source ~/.config/fish/functions/load_functions.fish
+    
+    # Apply shell-agnostic configurations in fish
+    source_shell_config
+    load_aliases
+    load_functions
 end
 
-set fish_greeting ""
-set -gx TERM xterm-256color
+# Remove greeting message
+set -g fish_greeting ""
 
-
-# theme
+# Theme settings
 set -g theme_color_scheme terminal-dark
 set -g fish_prompt_pwd_dir_length 1
 set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
-
-
-# aliases
-command -qv python3 && alias python python3
-command -qv nvim && alias vim nvim
-set -gx EDITOR nvim
-
-
-set -gx PATH bin $PATH
-set -gx PATH ~/bin $PATH
-set -gx PATH ~/.local/bin $PATH
-
-
-# NodeJS
-set -gx PATH node_modules/.bin $PATH
-
-
-# Go
-set -g GOPATH $HOME/go
-set -gx PATH $GOPATH/bin $PATH
-
 
 # NVM
 function __check_rvm --on-variable PWD --description 'Do nvm stuff'
@@ -45,7 +30,7 @@ function __check_rvm --on-variable PWD --description 'Do nvm stuff'
   end
 end
 
-
+# OS-specific configurations
 switch (uname)
   case Darwin
     source (dirname (status --current-filename))/config-macos.fish
@@ -55,6 +40,7 @@ switch (uname)
     source (dirname (status --current-filename))/config-windows.fish
 end
 
+# Load local configuration if it exists
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
