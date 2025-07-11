@@ -4,6 +4,9 @@ if status is-interactive
     source ~/.config/fish/functions/load_aliases.fish
     source ~/.config/fish/functions/load_functions.fish
     
+    # Initialize rbenv
+    status --is-interactive; and source (rbenv init -|psub)
+    
     # Apply shell-agnostic configurations in fish
     source_shell_config
     load_aliases
@@ -44,4 +47,30 @@ end
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
+end
+
+# Grimoire quick capture aliases
+alias qn='grimoire inbox note'
+alias ql='grimoire inbox link'
+alias qi='grimoire inbox list'
+alias qis='grimoire inbox list --summary'
+alias qip='grimoire inbox list --unprocessed'
+alias qe='grimoire inbox export'
+
+# Project-specific quick capture
+function qnp
+    set project $argv[1]
+    set content $argv[2..-1]
+    grimoire inbox note "$content" --project $project
+end
+
+function qlp
+    set project $argv[1]
+    set url $argv[2]
+    set desc $argv[3..-1]
+    if test -n "$desc"
+        grimoire inbox link $url --project $project --desc "$desc"
+    else
+        grimoire inbox link $url --project $project
+    end
 end
